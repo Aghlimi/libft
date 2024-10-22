@@ -6,10 +6,10 @@ SRCS = ft_atoi.c       ft_isprint.c    ft_putchar_fd.c ft_striteri.c   ft_strnst
 		ft_isascii.c    ft_memmove.c    ft_strchr.c     ft_strmapi.c    ft_toupper.c\
 		ft_isdigit.c    ft_memset.c     ft_strdup.c     ft_strncmp.c
 
-BSRCS = b/ft_lstadd_back_bonus.c        b/ft_lstlast_bonus.c\
-b/ft_lstadd_front_bonus.c       b/ft_lstmap_bonus.c\
-b/ft_lstclear_bonus.c           b/ft_lstnew_bonus.c\
-b/ft_lstdelone_bonus.c          b/ft_lstsize_bonus.c
+BSRCS = ft_lstadd_back_bonus.c       ft_lstlast_bonus.c\
+ft_lstadd_front_bonus.c       ft_lstmap_bonus.c\
+ft_lstclear_bonus.c           ft_lstnew_bonus.c\
+ft_lstdelone_bonus.c          ft_lstsize_bonus.c
 
 OBJS = ${SRCS:%.c=%.o}
 
@@ -33,4 +33,7 @@ fclean:clean
 	@rm -f $(NAME)
 re: fclean all
 
-.PHONY all clean fclean re
+bonus:$(BOBJS)
+	@$(AR) $< $(BOBJS)
+
+.PHONY: all clean fclean re
