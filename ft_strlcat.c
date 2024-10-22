@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 10:56:54 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/22 11:18:48 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/22 18:03:54 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	}
 	if (ft_strlen(dst))
 		dst[i] = 0;
-	return (dst);
+	return (ft_strlen(dst) + ft_strlen(src));
 }

@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 09:40:56 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/22 11:17:22 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/22 18:15:03 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,6 @@ void	*ft_memset(void *b, int c, size_t len)
 		return (b);
 	area = (char *)b;
 	while ((size_t)i < len)
-		area[i] = c;
+		area[i++] = c;
 	return (b);
 }
