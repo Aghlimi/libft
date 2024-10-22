@@ -1,0 +1,3 @@
+#!/bin/bash
+mv $1 norm/$1.bak;
+/Users/aghlimi/Library/Python/3.9/bin/c_formatter_42 < norm/$1.bak > $1;

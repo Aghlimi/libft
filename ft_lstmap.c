@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:02:35 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/21 16:19:49 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/22 11:16:27 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list *list;
-	t_list *new;
-	t_list *stl;
+	t_list	*list;
+	t_list	*new;
+	t_list	*stl;
 
 	while (lst)
 	{
