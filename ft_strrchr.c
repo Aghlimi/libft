@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:17:27 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/22 18:08:03 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/23 12:09:06 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
 
-	i = ft_strlen(s) - 1;
-	while (s[i])
-		if (s[i--] == c)
-			return ((char *)(s + i + 1));
-	if (!c)
-		return ((char *)(s + i));
+	if (s)
+	{
+		i = ft_strlen(s);
+		while (i >= 0)
+			if (s[i--] == c)
+				return ((char *)(s + i + 1));
+	}
 	return (NULL);
 }

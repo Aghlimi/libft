@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:02:25 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/22 15:23:24 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/23 09:41:38 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_atoi(const char *str)
 	if (str[index] == '-' || str[index] == '+')
 		if (str[index++] == '-')
 			sign = -1;
-	while (str[index])
+	while (ft_isdigit(str[index]))
 		number = number * 10 + str[index++] - '0';
 	return (number * sign);
 }

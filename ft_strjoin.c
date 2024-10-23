@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 20:37:23 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/22 11:18:21 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/23 11:10:31 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (s1 && str)
 		while (s1[i++])
 			str[i - 1] = s1[i - 1];
+	i--;
 	if (s2 && str)
-		while (s2[i])
-			str[i++] = s1[j++];
-	str[i++] = 0;
+		while (s2[j])
+			str[i++] = s2[j++];
+	str[i] = 0;
 	return (str);
 }

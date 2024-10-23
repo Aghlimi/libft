@@ -6,25 +6,29 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 20:46:13 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/22 20:50:42 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/23 11:41:50 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int	ft_in(const char *text, char c)
 {
-	while (text[0])
-		if (*(text++) == c)
+	int	i;
+
+	i = 0;
+	while (text[i])
+		if (*(text + i++) == c)
 			return (1);
 	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		start;
-	int		end;
+	int	i;
+	int	start;
+	int	end;
 
 	i = 0;
 	while (ft_in(set, s1[i]))
@@ -34,5 +38,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (ft_in(set, s1[i]))
 		i--;
 	end = i;
+	if (start >= end)
+		return (ft_strdup(""));
 	return (ft_substr(s1, start, end - start + 1));
 }

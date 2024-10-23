@@ -1,0 +1,9 @@
+# list=$(ls *bonus.c);
+# for i in ${list[@]};do
+#     mv $i $(basename $i _bonus.c).c;
+# done
+
+list=$(ls ft_lst*.c);
+for i in ${list[@]};do
+    mv $i $(basename $i .c)_bonus.c;
+done

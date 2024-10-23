@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:28:54 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/22 16:24:12 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/23 11:16:15 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ char	**ft_split(char const *s, char c)
 		index = i;
 		while (s[i] != c && s[i] && len++ != -1)
 			i++;
-		if (len > 1)
-			list[size++] = ft_substr(s, index, len - 1);
+		if (len > 0)
+			list[size++] = ft_substr(s, index, len);
 	}
 	list[size++] = NULL;
 	return (list);
