@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:23:47 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/22 20:50:24 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/24 17:47:49 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*m;
 
+	if (size && count >= SIZE_MAX / size)
+		return (NULL);
 	m = malloc(count * size);
+	if (!m)
+		return (NULL);
 	ft_bzero(m, count * size);
 	return (m);
 }

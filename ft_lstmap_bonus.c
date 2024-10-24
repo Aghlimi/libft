@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstmap_bonus.c                                  :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:02:35 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/22 20:55:31 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/23 15:12:47 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*list;
 	t_list	*new;
 
-	while (lst)
+	list = NULL;
+	while (lst && f && del)
 	{
 		new = ft_lstnew(f(lst->content));
 		if (!new)

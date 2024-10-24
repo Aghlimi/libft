@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 14:04:52 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/21 14:09:17 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/23 14:39:27 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_lstsize(t_list *lst)
 	while (lst)
 	{
 		count++;
-		lst = lst->content;
+		lst = lst->next;
 	}
 	return (count);
 }

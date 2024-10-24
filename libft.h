@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:19:04 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/23 11:46:48 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/23 15:13:10 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,5 @@ char				*ft_itoa(int n);
 char				*ft_strdup(const char *s1);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strtrim(char const *s1, char const *set);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstadd_front(t_list **lst, t_list *new);
 #endif

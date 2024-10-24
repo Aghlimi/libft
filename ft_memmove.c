@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 09:55:06 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/22 11:16:32 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/24 14:30:47 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	if (dst < src)
 		return (ft_memcpy(dst, src, len));
-	if (dst > src && dst && src)
+	if ((dst || src) && dst > src)
 	{
 		d = (char *)dst;
 		s = (char *)src;

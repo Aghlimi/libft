@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:28:54 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/23 11:16:15 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/24 16:40:07 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ static size_t	countword(const char *s, char c)
 
 	index = 0;
 	number = 0;
-	while (s[index])
-	{
-		if (s[index] != c && (index == 0 || s[index - 1] == c))
-			number++;
-		index++;
-	}
+	if (s)
+		while (s[index++])
+			if (s[index - 1] != c && (index - 1 == 0 || s[index - 1 - 1] == c))
+				number++;
 	return (number);
 }
 
@@ -40,6 +38,8 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	index = 0;
 	list = ft_calloc(countword(s, c) + 1, sizeof(char *));
+	if (!list || !s)
+		return (free(list), NULL);
 	while (s[i])
 	{
 		len = 0;

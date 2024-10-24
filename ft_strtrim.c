@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 20:46:13 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/23 11:41:50 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/23 21:37:11 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int	end;
 
 	i = 0;
+	if (!s1 || !set)
+		return (NULL);
 	while (ft_in(set, s1[i]))
 		i++;
 	start = i;

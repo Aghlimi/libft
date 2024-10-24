@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:24:37 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/22 16:29:38 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/24 14:29:05 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	if (fd >= 0)
+		write(fd, s, ft_strlen(s));
 }
