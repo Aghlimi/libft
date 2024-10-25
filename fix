@@ -1,9 +1,14 @@
-# list=$(ls *bonus.c);
-# for i in ${list[@]};do
-#     mv $i $(basename $i _bonus.c).c;
-# done
+#!/usr/bin/bash
+if [$1  1]; then
+    list=$(ls *bonus.c);
+    for i in ${list[@]};do
+        mv $i $(basename $i _bonus.c).c;
+    done
+else
+    list=$(ls ft_lst*.c);
+    for i in ${list[@]};do
+        mv $i $(basename $i .c)_bonus.c;
+    done
+fi
 
-list=$(ls ft_lst*.c);
-for i in ${list[@]};do
-    mv $i $(basename $i .c)_bonus.c;
-done
+

@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 14:42:19 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/24 18:41:39 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/24 20:14:44 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	ss1 = (unsigned char *)s1;
 	ss2 = (unsigned char *)s2;
-	while (s1 && s2 && (size_t)i < n)
+	while ((size_t)i < n)
 	{
 		if (ss1[i] > ss2[i])
 			return (1);

@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:38:12 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/24 18:41:11 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/24 20:37:57 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*result;
 	int		i;
 
+	if (!s || !f)
+		return (NULL);
 	result = ft_strdup(s);
 	i = 0;
-	if (s && f)
+	if (result)
 		while (s[i++])
 			result[i - 1] = f(i - 1, s[i - 1]);
 	else

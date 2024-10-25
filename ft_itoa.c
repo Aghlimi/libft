@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:35:59 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/24 17:52:02 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/24 21:16:09 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,16 @@ static char	*ft_addchar(char *text, char c)
 	int		i;
 
 	t = ft_calloc(ft_strlen(text) + 2, 1);
-	if (t)
+	if (!t)
+		return (t);
+	if (ft_strlen(text))
 	{
-		if (ft_strlen(text))
-		{
-			t = ft_memcpy(t, text, ft_strlen(text));
-			free(text);
-		}
-		i = ft_strlen(t);
-		t[i++] = c;
-		t[i] = 0;
+		t = ft_memcpy(t, text, ft_strlen(text));
+		free(text);
 	}
+	i = ft_strlen(t);
+	t[i++] = c;
+	t[i] = 0;
 	return (t);
 }
 
