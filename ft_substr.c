@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 18:46:05 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/25 10:56:14 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/25 21:56:28 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (ft_strdup(""));
 	while (s[i] && (size_t)i < len)
 		str[i++] = s[start++];
-	str[i++] = (char) NULL;
+	str[i++] = '\0';
 	return (str);
 }

@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:35:59 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/24 21:16:09 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/25 21:55:22 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,9 @@ char	*ft_itoa(int n)
 	char	*result;
 	int		i;
 	int		len;
-	int		sign;
 
 	result = ft_calloc(intlen(n) + 2, 1);
 	i = 0;
-	sign = 0;
 	if (!result)
 		return (NULL);
 	if (n == -2147483648)
@@ -76,7 +74,6 @@ char	*ft_itoa(int n)
 	{
 		n = -n;
 		result[0] = '-';
-		sign = 1;
 	}
 	else if (n == 0)
 		return (ft_strdup("0"));
