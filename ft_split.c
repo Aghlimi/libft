@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:28:54 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/24 20:35:09 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/26 22:50:05 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,21 @@ static size_t	countword(const char *s, char c)
 	return (number);
 }
 
-static void	f(const char *s, char c, char **list)
+static void	freesplit(char **list, size_t size)
 {
-	int	i;
-	int	index;
-	int	len;
-	int	size;
+	size_t	i;
+
+	i = 0;
+	while (i < size)
+		free(list[i]);
+}
+
+static char	**splitloop(const char *s, char c, char **list)
+{
+	int		i;
+	int		index;
+	int		len;
+	size_t	size;
 
 	size = 0;
 	i = 0;
@@ -44,10 +53,15 @@ static void	f(const char *s, char c, char **list)
 		index = i;
 		while (s[i] != c && s[i] && len++ != -1)
 			i++;
-		if (len > 0)
-			(list)[size++] = ft_substr(s, index, len);
+		list[size] = ft_substr(s, index, len);
+		if (s[index])
+			if (!list[size++])
+			{
+				return (freesplit(list, size - 1), free(list), NULL);
+			}
 	}
-	(list)[size++] = NULL;
+	list[size++] = NULL;
+	return (list);
 }
 
 char	**ft_split(char const *s, char c)
@@ -56,7 +70,9 @@ char	**ft_split(char const *s, char c)
 
 	list = ft_calloc(countword(s, c) + 1, sizeof(char *));
 	if (!list || !s)
-		return (free(list), NULL);
-	f(s, c, list);
-	return (list);
+	{
+		free(list);
+		return (NULL);
+	}
+	return (splitloop(s, c, list));
 }

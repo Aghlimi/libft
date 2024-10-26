@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 20:46:13 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/25 12:13:36 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/26 17:09:03 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (ft_in(set, s1[i]) && i > 0)
 		i--;
 	end = i;
-	if (start >= end)
+	if (start > end)
 		return (ft_strdup(""));
 	return (ft_substr(s1, start, end - start + 1));
 }
-// int	main(int argc, char const *argv[])
-// {
-	// 
-// 	char s1[] = "          ";
-// 	printf("|%s|", ft_strtrim(s1, " "));
-// 	return (0);
-// }

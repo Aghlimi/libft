@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:17:14 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/24 10:17:10 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/26 22:21:34 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*el;
 
-	el = ft_calloc(1, sizeof(t_list));
+	el = malloc(sizeof(t_list));
 	if (el)
 	{
 		el->content = content;

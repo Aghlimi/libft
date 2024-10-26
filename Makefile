@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/10/26 21:26:27 by aghlimi           #+#    #+#              #
+#    Updated: 2024/10/26 21:26:28 by aghlimi          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRCS = ft_atoi.c       ft_isprint.c    ft_putchar_fd.c ft_striteri.c   ft_strnstr.c \
 		ft_bzero.c      ft_itoa.c       ft_putendl_fd.c ft_strjoin.c    ft_strrchr.c\
 		ft_calloc.c     ft_memchr.c     ft_putnbr_fd.c  ft_strlcat.c    ft_strtrim.c\
@@ -21,8 +33,10 @@ AR = ar rcs
 CC = cc -Wall -Wextra -Werror
 
 all:$(NAME)
-	$(AR) $< $(OBJS)
+	
+
 $(NAME):$(OBJS)
+	$(AR) $@ $(OBJS)
 
 %.o:%.c
 	$(CC) -c $< -o $@ 
@@ -35,4 +49,4 @@ re: fclean all
 bonus:$(BOBJS)
 	$(AR) $(NAME) $(BOBJS)
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus
