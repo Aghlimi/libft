@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:02:35 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/26 11:51:01 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/27 11:26:33 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		if (!new)
 		{
 			del(value);
-			return (ft_lstclear(&list, del), NULL);
+			ft_lstclear(&list, del);
+			return (NULL);
 		}
 		ft_lstadd_back(&list, new);
 		lst = lst->next;

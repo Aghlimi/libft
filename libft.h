@@ -6,12 +6,13 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 13:19:04 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/24 21:06:33 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/27 12:01:43 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

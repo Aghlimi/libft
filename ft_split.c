@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 15:28:54 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/26 22:50:05 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/27 13:32:24 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,14 @@ static size_t	countword(const char *s, char c)
 	index = 0;
 	number = 0;
 	if (s)
-		while (s[index++])
-			if (s[index - 1] != c && (index - 1 == 0 || s[index - 1 - 1] == c))
+	{
+		while (s[index])
+		{
+			if (s[index] != c && (index == 0 || s[index - 1] == c))
 				number++;
+			index++;
+		}
+	}
 	return (number);
 }
 
@@ -32,7 +37,12 @@ static void	freesplit(char **list, size_t size)
 
 	i = 0;
 	while (i < size)
-		free(list[i]);
+	{
+		if (list[i])
+			free(list[i]);
+		i++;
+	}
+	free(list);
 }
 
 static char	**splitloop(const char *s, char c, char **list)
@@ -54,13 +64,11 @@ static char	**splitloop(const char *s, char c, char **list)
 		while (s[i] != c && s[i] && len++ != -1)
 			i++;
 		list[size] = ft_substr(s, index, len);
-		if (s[index])
-			if (!list[size++])
-			{
-				return (freesplit(list, size - 1), free(list), NULL);
-			}
+		if (!list[size++])
+			return (freesplit(list, size - 1), NULL);
+		else if (ft_strlen(list[size - 1]) == 0)
+			list[size - 1] = (free(list[size - 1]), NULL);
 	}
-	list[size++] = NULL;
 	return (list);
 }
 
@@ -68,11 +76,11 @@ char	**ft_split(char const *s, char c)
 {
 	char	**list;
 
-	list = ft_calloc(countword(s, c) + 1, sizeof(char *));
-	if (!list || !s)
-	{
-		free(list);
+	if (!s)
 		return (NULL);
-	}
-	return (splitloop(s, c, list));
+	list = ft_calloc(countword(s, c) + 1, sizeof(char *));
+	if (!list)
+		return (NULL);
+	list = splitloop(s, c, list);
+	return (list);
 }
