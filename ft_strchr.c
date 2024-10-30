@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 12:08:56 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/26 22:11:22 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/27 16:26:47 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)(s + i));
 	return (NULL);
 }
-// int main(int argc, char const *argv[])
-// {
-// 	printf("%d",(char)1024);
-// 	return 0;
-// }

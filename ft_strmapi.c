@@ -6,7 +6,7 @@
 /*   By: aghlimi <aghlimi@student.1337.ma>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:38:12 by aghlimi           #+#    #+#             */
-/*   Updated: 2024/10/24 20:37:57 by aghlimi          ###   ########.fr       */
+/*   Updated: 2024/10/27 17:32:04 by aghlimi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 
 	if (!s || !f)
 		return (NULL);
-	result = ft_strdup(s);
+	result = ft_calloc(ft_strlen(s) + 1, 1);
 	i = 0;
-	if (result)
-		while (s[i++])
-			result[i - 1] = f(i - 1, s[i - 1]);
-	else
+	if (!result)
 		return (NULL);
+	while (s[i])
+	{
+		result[i] = f(i, s[i]);
+		i++;
+	}
 	return (result);
 }
