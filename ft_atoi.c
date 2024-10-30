@@ -26,9 +26,11 @@ int	ft_atoi(const char *str)
 	if (str[index] == '-' || str[index] == '+')
 		if (str[index++] == '-')
 			sign = 1;
-	while (ft_isdigit(str[index]))
+	while (ft_isdigit(str[index])){
+		if (number - (1 * sign) >= 9223372036854775807)
+			return (-1 * !sign);
 		number = number * 10 + str[index++] - '0';
-	if (number - (1 * sign) >= 9223372036854775807)
-		return (-1 * !sign);
+	
+	}
 	return ((int)(number * (1 + -2 * sign)));
 }
