@@ -64,10 +64,11 @@ static char	**splitloop(const char *s, char c, char **list)
 		while (s[i] != c && s[i] && len++ != -1)
 			i++;
 		list[size] = ft_substr(s, index, len);
-		if (!list[size++])
-			return (freesplit(list, size - 1), NULL);
-		else if (ft_strlen(list[size - 1]) == 0)
-			list[size - 1] = (free(list[size - 1]), NULL);
+		if (!list[size])
+			return (freesplit(list, size), NULL);
+		else if (ft_strlen(list[size]) == 0)
+			list[size] = (free(list[size]), NULL);
+		size ++;
 	}
 	return (list);
 }
