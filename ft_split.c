@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-static size_t	countword(const char *s, char c)
+static size_t countword(const char *s, char c)
 {
-	size_t	number;
-	int		index;
+	size_t number;
+	int index;
 
 	index = 0;
 	number = 0;
@@ -31,9 +31,9 @@ static size_t	countword(const char *s, char c)
 	return (number);
 }
 
-static void	freesplit(char **list, size_t size)
+static void freesplit(char **list, size_t size)
 {
-	size_t	i;
+	size_t i;
 
 	i = 0;
 	while (i < size)
@@ -44,38 +44,54 @@ static void	freesplit(char **list, size_t size)
 	}
 	free(list);
 }
-
-static char	**splitloop(const char *s, char c, char **list)
+int skip(const char *s, int i, char c)
 {
-	int		i;
-	int		index;
-	int		len;
-	size_t	size;
+	if (s[i] == '\'' || s[i] == '"' || s[i] == '`')
+		return ft_strchr(s + i + 1, s[i]) - s + i;
+	while (s[i] != c && s[i])
+		i++;
+	return i;
+}
+
+void parse(char *text)
+{
+	if (!text)
+		return ;
+	if (ft_strchr("\"'`", text[0]) && ft_strchr("\"'`", text[ft_strlen(text) - 1]))
+	{
+		text[ft_strlen(text) - 1] = 0;
+		ft_memmove(text, text + 1, ft_strlen(text));
+	}
+}
+static char **splitloop(const char *s, char c, char **list)
+{
+	int i;
+	int index;
+	size_t size;
 
 	size = 0;
 	i = 0;
 	index = 0;
 	while (s[i])
 	{
-		len = 0;
 		while (s[i] == c)
 			i++;
 		index = i;
-		while (s[i] != c && s[i] && len++ != -1)
-			i++;
-		list[size] = ft_substr(s, index, len);
+		i = skip(s, i, c);
+		list[size] = ft_substr(s, index, i - index);
+		parse(list[size]);
 		if (!list[size])
 			return (freesplit(list, size), NULL);
 		else if (ft_strlen(list[size]) == 0)
 			list[size] = (free(list[size]), NULL);
-		size ++;
+		size++;
 	}
 	return (list);
 }
 
-char	**ft_split(char const *s, char c)
+char **ft_split(char const *s, char c)
 {
-	char	**list;
+	char **list;
 
 	if (!s)
 		return (NULL);
@@ -85,3 +101,17 @@ char	**ft_split(char const *s, char c)
 	list = splitloop(s, c, list);
 	return (list);
 }
+int main(int argc, char const *argv[])
+{
+	if (argc - 1)
+	{
+		int i = 0;
+		char **list = ft_split(argv[1], ' ');
+		while (list[i])
+		{
+			printf("%s\n", list[i++]);
+		}
+	}
+	return 0;
+}
+// awk '{printf $1}'
